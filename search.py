@@ -9,8 +9,8 @@ import pandas as pd
 def search_drugs():
     st.markdown("<h1 style='text-align: center; color: black;'>Tìm kiếm thuốc</h1>", unsafe_allow_html=True)
 
-    # Connect to the Google Sheet
-    path = "D:/Users/User/Downloads/drug_data2.csv"
+    
+    path = "drug_data2.csv"
     df = pd.read_csv(path, dtype=str).fillna("")
 
     # Use a text_input to get the keywords to filter the dataframe
@@ -21,13 +21,6 @@ def search_drugs():
     m2 = df["Brand"].str.contains(text_search, case=False)
 
     df_search = df[m1 | m2]
-
-    # Show the results, if you have a text_search
-    #if text_search:
-    #    st.write(df_search)
-
-    # Another way to show the filtered results
-    # Show the cards
     N_cards_per_row = 3
     if text_search:
         for n_row, row in df_search.reset_index().iterrows():
