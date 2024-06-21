@@ -11,9 +11,18 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.document_loaders.csv_loader import CSVLoader
 import os
 import sys
+import sqlite3
 
 st.set_page_config(layout="wide")
-os.path.dirname(sys.executable)
+
+
+# Get the Python executable and DLLs folder
+python_executable_dir = os.path.dirname(sys.executable)
+dlls_folder = os.path.join(python_executable_dir, 'DLLs')
+
+sqlite_dll_path = os.path.join(dlls_folder, 'sqlite3.dll')
+
+
 @st.cache_resource
 def load_data3():
     loader = CSVLoader(file_path="PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.csv",encoding="utf8")
