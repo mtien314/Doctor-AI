@@ -5,4 +5,4 @@ langchain
 langchain-community
 langchain-google-genai
 sentence-transformers
-chromadb
+chromadb==0.3.29
