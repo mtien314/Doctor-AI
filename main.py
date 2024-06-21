@@ -10,6 +10,7 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.document_loaders.csv_loader import CSVLoader
 import os
+import sys
 
 st.set_page_config(layout="wide")
 os.path.dirname(sys.executable)
