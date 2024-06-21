@@ -1,9 +1,10 @@
 pip==24.1
+upgrade pip
 streamlit
 streamlit-navigation-bar
 langchain
 langchain-community
 langchain-google-genai
 sentence-transformers
-chromadb==3.35.0
+chromadb
 sqlite3
