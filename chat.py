@@ -10,8 +10,8 @@ from langchain.chains.question_answering import load_qa_chain
 
 
 def display(vector_index, chunks): 
-    st.secrets["GOOGLE_API_KEY"]
-   
+    
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
     genai.configure(api_key=GOOGLE_API_KEY)
     llm = ChatGoogleGenerativeAI(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
 
