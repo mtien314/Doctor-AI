@@ -20,7 +20,6 @@ st.set_page_config(layout="wide")
 python_executable_dir = os.path.dirname(sys.executable)
 dlls_folder = os.path.join(python_executable_dir, 'DLLs')
 
-sqlite_dll_path = os.path.join(dlls_folder, 'sqlite3.dll')
 
 
 @st.cache_resource
