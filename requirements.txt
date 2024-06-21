@@ -1,0 +1,7 @@
+pip==24.0
+streamlit
+streamlit-navigation-bar
+langchain
+langchain-community
+langchain-google-genai
+
