@@ -11,7 +11,7 @@ from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.document_loaders.csv_loader import CSVLoader
 
 st.set_page_config(layout="wide")
-
+os.path.dirname(sys.executable)
 @st.cache_resource
 def load_data3():
     loader = CSVLoader(file_path="PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.csv",encoding="utf8")
