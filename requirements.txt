@@ -1,9 +1,9 @@
-pip==24.0
+pip==24.1
 streamlit
 streamlit-navigation-bar
 langchain
 langchain-community
 langchain-google-genai
 sentence-transformers
-chromadb
-sqlite3==3.35.0
+chromadb==3.35.0
+sqlite3
