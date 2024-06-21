@@ -51,7 +51,7 @@ def appoiment():
             if doctor_info['Ảnh'].values[0] != "":
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
-                unknown_doctor = "D:/Users/User/Downloads/Unknown_person.jpg"
+                unknown_doctor = "Unknown_person.jpg"
                 st.image(unknown_doctor, width= 250)
         with col_2:
             st.subheader(doctor_name)
