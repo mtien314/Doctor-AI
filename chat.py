@@ -10,7 +10,7 @@ from langchain.chains.question_answering import load_qa_chain
 
 
 def display(vector_index, chunks): 
-    GOOGLE_API_KEY = "AIzaSyCcQdli7_plbvQwFg_hoNVdAdrEqFlt2Lo"
+    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
    
     genai.configure(api_key=GOOGLE_API_KEY)
 
