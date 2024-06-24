@@ -43,7 +43,7 @@ def display(vector_index, chunks):
                     Tư vấn sức khỏe và đưa ra lời khuyên cho bệnh nhân.
                     Recommend thuốc cho bệnh nhân.
                     Gợi ý một số bác sĩ liên quan đến tình trạng bệnh nhân nếu cần.
-                    Luôn duy trì mạch lạc trong cuộc hội thoại và đảm bảo rằng mỗi câu hỏi của bạn đều liên quan và hỗ trợ người dùng tìm kiếm thông tin mà họ cần.
+                    Luôn duy trì mạch lạc trong cuộc hội thoại.
                     Context:\n {context}?\n
                     Question: \n {question}\n
                     Answer:
