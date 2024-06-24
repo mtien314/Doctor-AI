@@ -10,10 +10,9 @@ from langchain.chains.question_answering import load_qa_chain
 
 
 def display(vector_index, chunks): 
-    
-    GOOGLE_API_KEY = st.secrets["GOOGLE_API_KEY"]
+    GOOGLE_API_KEY = "AIzaSyCcQdli7_plbvQwFg_hoNVdAdrEqFlt2Lo"
+   
     genai.configure(api_key=GOOGLE_API_KEY)
-    llm = ChatGoogleGenerativeAI(model="gemini-pro",google_api_key=GOOGLE_API_KEY)
 
     if "messages" not in st.session_state.keys(): # Initialize the chat message history
         st.session_state.messages = [
@@ -38,20 +37,19 @@ def display(vector_index, chunks):
                 
                 if  st.session_state.question_count <=5  :
                     prompt_template = """
-                    Giao tiếp như 1 người bạn.
-                    Bạn là 1 bác sĩ online.
-                    Tư vấn bệnh cho bệnh nhân.
-                    Kê đơn thuốc kháng sinh cho bệnh nhân và đưa ra lời khuyên.
-                    Đề xuất đi khám bác sĩ hoặc đi bệnh viện nếu bệnh nặng.
-                    Đề xuất danh sách các bác sĩ liên quan đến bệnh có trong dữ liệu.
-                    Nếu câu hỏi không liên quan đến y tế, bệnh hãy trả lời:
-                    "Xin lỗi, tôi chỉ là 1 chuyên gia tư vấn sức khỏe online."
+                    Bạn là 1 chuyên viên tư vấn sức khỏe.
+                    Trả lời tự nhiên như 1 người bạn.
+                    Trả lời đầy đủ dựa vào ngữ cảnh được cung cấp.
+                    Tư vấn sức khỏe và đưa ra lời khuyên cho bệnh nhân.
+                    Recommend thuốc cho bệnh nhân.
+                    Gợi ý một số bác sĩ liên quan đến tình trạng bệnh nhân nếu cần.
+                    Luôn duy trì mạch lạc trong cuộc hội thoại và đảm bảo rằng mỗi câu hỏi của bạn đều liên quan và hỗ trợ người dùng tìm kiếm thông tin mà họ cần.
                     Context:\n {context}?\n
                     Question: \n {question}\n
                     Answer:
                     """
                     context = vector_index.similarity_search(question, k=3) 
-                    prompt = PromptTemplate(template = prompt_template, input_variables = ["", "question"])
+                    prompt = PromptTemplate(template = prompt_template, input_variables = ["context", "question"])
                     model = ChatGoogleGenerativeAI(model="gemini-1.5-flash-latest",google_api_key = GOOGLE_API_KEY, temperature=0.3)
                     chain = load_qa_chain(model, chain_type="stuff", prompt=prompt)
                     response = chain({"input_documents": chunks, "question": question}, return_only_outputs=True)
@@ -62,7 +60,6 @@ def display(vector_index, chunks):
                 else:
                    
                     st.write("Bạn vui lòng thanh toán để được tư vấn tiếp.")
-                   
                     st.write("Link thanh toán: https://buy.stripe.com/test_fZecPd1H73zz7jqfYZ")
                     st.write("Lưu ý: từ câu hỏi thứ 5, phí 50k/câu. Từ câu thứ 10, phí 100k/ câu")
                     st.write("Bạn có muốn tiếp tục nữa không ?")
@@ -84,7 +81,3 @@ def display(vector_index, chunks):
                         st.empty() 
                     if k==2:
                         st.write("Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi !!")
-                           
-                    
-
-
