@@ -2,6 +2,16 @@ import streamlit as st
 import datetime
 import pandas as pd
 
+def select_name(name):
+    st.session_state["selected_name"] = name
+    
+def select_time(slot):
+    st.session_state["selected_time"] = slot
+
+
+def select_day(day):
+    st.session_state["selected_day"] = day
+
 def apointment():
     st.markdown(
     "<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>",
@@ -24,16 +34,6 @@ def apointment():
 
 
     # Functions to select the doctor's name, time slot, schedule day
-    def select_name(name):
-        st.session_state["selected_name"] = name
-
-
-    def select_time(slot):
-        st.session_state["selected_time"] = slot
-
-
-    def select_day(day):
-    st.session_state["selected_day"] = day
 
 
     doctor_columns, booking_column = st.columns([4, 3])
