@@ -1,7 +1,7 @@
 import streamlit as st
 from streamlit_navigation_bar import st_navbar
 from search import search_drugs
-from booking_page import appointment
+from booking_page import apointment
 from chat import display
 from langchain_community.vectorstores import Chroma
 from langchain_core.prompts import PromptTemplate
@@ -38,7 +38,7 @@ if page =="Search 🔎":
     search_drugs()
 
 if page == "Appoiment 📆":
-    appointment()
+    apointment()
 
 if page =="Chat 🧑‍⚕️":
     display(vector_index, chunks)
