@@ -31,7 +31,7 @@ def load_data3():
 vector_index,chunks = load_data3()
 
 
-
+st.logo('chusoc.jpg')
 page = st_navbar(["Home", "Chat 🧑‍⚕️", "Search 🔎", "Appointment 📆"])
 
 if page =="Search 🔎":
