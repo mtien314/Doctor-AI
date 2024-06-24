@@ -37,7 +37,7 @@ page = st_navbar(["Home", "Chat 🧑‍⚕️", "Search 🔎", "Appointment 📆
 if page =="Search 🔎":
     search_drugs()
 
-if page == "Appoiment 📆":
+if page == "Appointment 📆":
     apointment()
 
 if page =="Chat 🧑‍⚕️":
