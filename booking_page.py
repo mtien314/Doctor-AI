@@ -52,7 +52,7 @@ def apointment():
 
         col_1, col_2 = st.columns([1, 1])
         with col_1:
-            if doctor_info['Ảnh'].values[0] != "None":
+            if doctor_info['Ảnh'].values[0] != "":
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
                 unknown_doctor = "Unknown_person.jpg"
