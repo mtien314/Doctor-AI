@@ -32,13 +32,13 @@ vector_index,chunks = load_data3()
 
 
 
-page = st_navbar(["Home", "Chat 🧑‍⚕️", "Search 🔎", "Appoiment 📆"])
+page = st_navbar(["Home", "Chat 🧑‍⚕️", "Search 🔎", "Appointment 📆"])
 
 if page =="Search 🔎":
     search_drugs()
 
 if page == "Appoiment 📆":
-    appoiment()
+    appointment()
 
 if page =="Chat 🧑‍⚕️":
     display(vector_index, chunks)
