@@ -60,10 +60,11 @@ if page =="Home":
     st.write("Bác sĩ online")
     st.write("Email: lapduanviet@gmai.com")
     st.write("Phone: 0918755356")
-    hide_github_icon = """
+    
+
+hide_github_icon = """
     #GithubIcon {
     visibility: hidden;
-    }
-    """
-    st.markdown(hide_github_icon, unsafe_allow_html=True)
-
+}
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
