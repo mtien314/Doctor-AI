@@ -55,4 +55,4 @@ if page =="Home":
     st.write("+ Thông Tin Y Khoa Đầy Đủ: Cung cấp thông tin chi tiết về các bệnh lý, thuốc và phương pháp điều trị.")
     st.header("Doctor AI Hoạt Động Như Thế Nào?")
     st.write("Doctor AI sử dụng công nghệ AI tiên tiến để phân tích dữ liệu y tế từ người dùng. Bạn chỉ cần nhập các triệu chứng hoặc câu hỏi của mình, Doctor AI sẽ phân tích và cung cấp câu trả lời chính xác nhất.")
-    st.logo('chusoc.jpg')
+    st.image('chusoc.jpg',width = 200)
