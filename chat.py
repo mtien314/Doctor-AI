@@ -60,6 +60,7 @@ def display(vector_index, chunks):
                    
                     st.write("Bạn vui lòng thanh toán để được tư vấn tiếp.")
                     st.write("Link thanh toán: https://buy.stripe.com/test_fZecPd1H73zz7jqfYZ")
+                    st.write("Hoặc thanh toán qua tài khoản: Nguyễn Văn Mai- tài khoản: 138608649. Ngân hàng ACB chi nhánh sài gòn ")
                     st.write("Lưu ý: từ câu hỏi thứ 5, phí 50k/câu. Từ câu thứ 10, phí 100k/ câu")
                     st.write("Bạn có muốn tiếp tục nữa không ?")
                     col_1,col_2 = st.columns(2)
