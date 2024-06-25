@@ -58,5 +58,5 @@ if page =="Home":
     st.image('chusoc.jpg',width = 200)
     st.header("Contact")
     st.write("Bác sĩ online")
-    st.write("Email:lapduanviet@gmai.com")
+    st.write("Email: lapduanviet@gmai.com")
     st.write("Phone: 0918755356")
