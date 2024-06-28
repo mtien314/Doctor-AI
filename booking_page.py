@@ -18,7 +18,7 @@ def apointment():
     st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
 
     # Connect to the data
-    path = "Bacsi.xlsx"
+    path = "PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
     df = pd.read_excel(path, dtype=str).fillna("")
 
     availability = "Monday, Wednesday, Friday"
