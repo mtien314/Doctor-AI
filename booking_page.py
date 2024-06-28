@@ -47,8 +47,7 @@ def apointment():
         with col_1:
             print(doctor_info['Ảnh'].values[0])
             url = doctor_info['Ảnh'].values[0]
-            response = requests.get(url)
-            if doctor_info['Ảnh'].values[0] != "" or response.status_code !=200:
+            if doctor_info['Ảnh'].values[0] != "":
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
                 unknown_doctor = "Unknown_person.jpg"
