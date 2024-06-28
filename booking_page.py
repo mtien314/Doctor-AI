@@ -1,6 +1,7 @@
 import streamlit as st
 import datetime
 import pandas as pd
+import requests
 
 def apointment():
     st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
@@ -45,7 +46,9 @@ def apointment():
         col_1, col_2 = st.columns([1, 1])
         with col_1:
             print(doctor_info['Ảnh'].values[0])
-            if doctor_info['Ảnh'].values[0] != "":
+            url = doctor_info['Ảnh'].values[0]
+            response = requests.get(url)
+            if doctor_info['Ảnh'].values[0] != "" or response.status_code !=200:
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
                 unknown_doctor = "Unknown_person.jpg"
