@@ -3,7 +3,7 @@ import datetime
 import pandas as pd
 import numpy as np
 
-def appointment():
+def apointment():
     st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
 
     # Connect to the data
