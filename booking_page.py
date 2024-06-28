@@ -7,8 +7,8 @@ def apointment():
     st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
 
     # Connect to the data
-    path = "PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
-    df = pd.read_excel(path, dtype=str).fillna("")
+    path = "PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.csv"
+    df = pd.read_csv(path, dtype=str).fillna("")
     print(df.head())
     availability = "Monday, Wednesday, Friday"
     time_slot = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"]
