@@ -52,6 +52,7 @@ def apointment():
 
         col_1, col_2 = st.columns([1, 1])
         with col_1:
+            print(doctor_info['Ảnh'].values[0])
             if doctor_info['Ảnh'].values[0] != "":
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
