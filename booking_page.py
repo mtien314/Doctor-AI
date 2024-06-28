@@ -1,15 +1,26 @@
 import streamlit as st
 import datetime
 import pandas as pd
-import requests
+
+# Function to select the doctor's time slot
+def select_name(name):
+    st.session_state["selected_name"] = name
+
+
+def select_time(slot):
+    st.session_state["selected_time"] = slot
+
+
+def select_day(day):
+    st.session_state["selected_day"] = day
 
 def apointment():
     st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
 
     # Connect to the data
-    path = "PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
+    path = "Bacsi.xlsx"
     df = pd.read_excel(path, dtype=str).fillna("")
-    print(df.head())
+
     availability = "Monday, Wednesday, Friday"
     time_slot = ["9:00 AM", "10:00 AM", "11:00 AM", "12:00 PM", "1:00 PM", "2:00 PM", "3:00 PM", "4:00 PM", "5:00 PM"]
 
@@ -18,19 +29,6 @@ def apointment():
 
     if "selected_time" not in st.session_state:
         st.session_state["selected_time"] = None
-
-
-    # Function to select the doctor's time slot
-    def select_name(name):
-        st.session_state["selected_name"] = name
-
-
-    def select_time(slot):
-        st.session_state["selected_time"] = slot
-
-
-    def select_day(day):
-        st.session_state["selected_day"] = day
 
     doctor_columns, booking_column = st.columns([4, 3])
 
@@ -45,8 +43,6 @@ def apointment():
     
         col_1, col_2 = st.columns([1, 1])
         with col_1:
-            print(doctor_info['Ảnh'].values[0])
-            url = doctor_info['Ảnh'].values[0]
             if doctor_info['Ảnh'].values[0] != "":
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
