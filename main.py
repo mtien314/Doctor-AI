@@ -9,23 +9,12 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.document_loaders.csv_loader import CSVLoader
-import mysql.connector
 import os
 st.set_page_config(layout="wide")
 
 
     
-DB_HOST = os.getenv('DB_HOST', '127.0.0.1')  # Default to localhost if not set
-DB_USER = os.getenv('DB_USER', 'root')
-DB_PASSWORD = os.getenv('DB_PASSWORD', '123')
-DB_DATABASE = os.getenv('DB_DATABASE', 'work')
 
-conn = mysql.connector.connect(
-            host=DB_HOST,
-            user=DB_USER,
-            password=DB_PASSWORD,
-            database=DB_DATABASE
-        )
 @st.cache_resource
 def load_data3():
     loader = CSVLoader(file_path="PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.csv",encoding="utf8")
