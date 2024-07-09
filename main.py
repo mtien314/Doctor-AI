@@ -81,7 +81,7 @@ if page =="Login":
 
         if actual_pass != 0:
             #encode password
-            actual = actual_pass.encode()
+            actual = actual_pass
             if bcrypt.checkpw(password.encode(), actual):
                 st.success("Login success")
                 user_id = find_accountID(email)
