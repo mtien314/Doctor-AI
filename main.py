@@ -8,7 +8,7 @@ from check import check_user, find_accountID
 from record import update_user_record,update_historylogs
 
 st.set_page_config(page_title="Home", page_icon="🏚️",layout="wide")
-client_id = st.st.secrets["client_id"]
+client_id = st.secrets["client_id"]
 client_secret = st.secrets["client_secret"]
 redirect_uri =st.secrets["redirect_uri"]
 
