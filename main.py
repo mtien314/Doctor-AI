@@ -15,7 +15,7 @@ client_secret = st.secrets["client_secret"]
 def ggAuth():
     login_info = oauth.login(
         client_id=client_id,
-        client_secret=client_secret
+        client_secret=client_secret,
     )
      
     if login_info:
