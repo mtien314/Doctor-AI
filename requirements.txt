@@ -10,3 +10,4 @@ openpyxl
 mysql-connector
 Unidecode
 git+https://github.com/hunkim/streamlit-google-oauth
+bcrypt
