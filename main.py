@@ -102,6 +102,7 @@ if page =="Login":
             if bcrypt.checkpw(password.encode(), actual):
                 st.success("Login success")
                 user_id = find_accountID(email)
+                update_historylogs(user_id,email)
                 placeholder = st.empty()
                 sleep(0.5)
                 st.switch_page("pages/page1.py")
