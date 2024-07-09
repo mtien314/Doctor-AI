@@ -16,7 +16,7 @@ def display(vector_index, chunks):
    
     genai.configure(api_key=GOOGLE_API_KEY)
 
-    conn = sqlite3.connect("Chroma.db")
+    conn = sqlite3.connect("chroma.db")
     cursor = conn.cursor()
 
     #ket noi voi history_logs
