@@ -1,24 +1,50 @@
 import streamlit as st
 import datetime
 import pandas as pd
+import numpy as np
+from record import connect_sql
+import random
+import unidecode
 
-# Function to select the doctor's time slot
 def select_name(name):
     st.session_state["selected_name"] = name
-
 
 def select_time(slot):
     st.session_state["selected_time"] = slot
 
-
 def select_day(day):
     st.session_state["selected_day"] = day
 
-def appointment():
-    st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
+def update_appoiment(PatientID, DoctorID, Time,Description):
+    #connect database
+    conn = connect_sql()
+    cursor = conn.cursor()
+    data = cursor.execute("SELECT *FROM appointment")
+    
+    result = cursor.fetchall()
+    df = pd.DataFrame(result,columns = ['ID','DoctorID','PatientID','DATE','Description'])
+    ID_list= [x for x in df['ID']]
+    ID = random.randint(0,200)
+    if ID not in ID_list:
+        cursor.execute("INSERT INTO appointment(ID, DoctorID, PatientID, DATE, Description) values (?,?,?,?,?);",
+                       (ID,DoctorID,PatientID,Time, Description))
+        conn.commit()
+    cursor.close()
 
+
+def appointment(PatientID):
+
+    st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
+    
+    #connect table doctor
+    conn = connect_sql()
+    cursor = conn.cursor()
+    data = cursor.execute("SELECT * FROM doctor")
+    result = cursor.fetchall()
+    df2 = pd.DataFrame(result, columns = ['ID','Name','Speciality'])
+    cursor.close()
     # Connect to the data
-    path = "PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
+    path = "D:/Users/User/Downloads/PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
     df = pd.read_excel(path, dtype=str).fillna("")
 
     availability = "Monday, Wednesday, Friday"
@@ -30,6 +56,7 @@ def appointment():
     if "selected_time" not in st.session_state:
         st.session_state["selected_time"] = None
 
+    # Function to select the doctor's time slot
     doctor_columns, booking_column = st.columns([4, 3])
 
     # Doctors' individual information
@@ -43,10 +70,10 @@ def appointment():
     
         col_1, col_2 = st.columns([1, 1])
         with col_1:
-            if doctor_info['Ảnh'].values[0] != "":
+            if doctor_info['Ảnh'].values[0] != "" :
                 st.image(doctor_info['Ảnh'].values[0], width= 250)
             else:
-                unknown_doctor = "Unknown_person.jpg"
+                unknown_doctor = "D:/Users/User/Downloads/Unknown_person.jpg"
                 st.image(unknown_doctor, width= 250)
         with col_2:
             st.subheader(doctor_name)
@@ -123,3 +150,17 @@ def appointment():
                 st.error("Bạn phải nhập tên.")
             else:
                 st.success(f"Đặt lịch hẹn thành công với {doctor_name}. Thời gian {date.strftime('%A, %B %d, %Y')} vào lúc {selected_time}")
+
+                #find ID base on doctor_name
+                doctor_name = unidecode.unidecode(doctor_name)
+                Description = unidecode.unidecode(symptoms)
+                DoctorID = df2.loc[df2['Name'] == doctor_name, 'ID']
+                time = date.strftime('%A, %B %d, %Y')
+                day = datetime.datetime.strptime(time, '%A, %B %d, %Y').date()
+                
+                time_object = datetime.datetime.strptime(selected_time, '%I:%M %p').time()
+                combine = datetime.datetime.combine(day, time_object)
+                DoctorID = int(DoctorID)
+                #open table appointment
+                update_appoiment(PatientID,DoctorID,combine,Description)
+
