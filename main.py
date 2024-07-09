@@ -56,6 +56,7 @@ if page =="Home":
     st.header("Doctor AI Hoạt Động Như Thế Nào?")
     st.write("Doctor AI sử dụng công nghệ AI tiên tiến để phân tích dữ liệu y tế từ người dùng. Bạn chỉ cần nhập các triệu chứng hoặc câu hỏi của mình, Doctor AI sẽ phân tích và cung cấp câu trả lời chính xác nhất.")
     st.header("Contact")
+    st.image("chusoc.jpg",width = 200)
     st.write("Bác sĩ online")
     st.write("Email: lapduanviet@gmail.com")
     st.write("Phone: 0918755356")
