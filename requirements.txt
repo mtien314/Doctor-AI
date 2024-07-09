@@ -9,3 +9,4 @@ chromadb==0.3.29
 openpyxl
 mysql-connector
 Unidecode
+pip install git+https://github.com/hunkim/streamlit-google-oauth
