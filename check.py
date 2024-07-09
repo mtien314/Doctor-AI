@@ -11,7 +11,7 @@ def connect(table):
 
 def check_user(email):
     result = connect(table = 'user')
-    df = pd.DataFrame(result,columns =['ID','Email','Password'])
+    df = pd.DataFrame(result,columns =['ID','Email','Password','Use'])
     
     mail = [x for x in df['Email']]
     if email in mail:
