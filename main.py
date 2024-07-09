@@ -6,6 +6,8 @@ import bcrypt
 from time import sleep
 from check import check_user, find_accountID
 from record import update_user_record,update_historylogs
+import random
+import string 
 
 st.set_page_config(page_title="Home", page_icon="🏚️",layout="wide")
 client_id = st.secrets["client_id"]
