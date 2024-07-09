@@ -57,9 +57,9 @@ if page =="Home":
     st.write("Bác sĩ online")
     st.write("Email: lapduanviet@gmail.com")
     st.write("Phone: 0918755356")
+    
 if page =="Login":
     #login by gg
-    ggAuth()
 
     #form login
     placeholder = st.empty()
@@ -69,6 +69,20 @@ if page =="Login":
         password = st.text_input("Password", type = "password")
         #button submit
         submit = st.form_submit_button("login")
+    
+    #form dang ky
+    placeholder = st.empty()
+    with placeholder.form("Chưa có tài khoản"):
+        st.markdown("### Đăng ký")
+        email2 = st.text_input("Email")
+        characters = string.ascii_letters + string.digits
+        id = ''.join(random.choice(characters) for i in range(8))
+        update_historylogs(id,email2)
+        update_user_record(id,email2)
+        #button submit
+        submit2 = st.form_submit_button("login")
+        sleep(0.5)
+        st.switch_page("pages/page1.py")
     
     #check status
     if password == "" or email == "":
