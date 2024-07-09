@@ -83,8 +83,9 @@ if page =="Login":
         update_user_record(id,email2)
         #button submit
         submit2 = st.form_submit_button("login")
-        sleep(0.5)
-        st.switch_page("pages/page1.py")
+        if submit2:
+            sleep(0.5)
+            st.switch_page("pages/page1.py")
     
     #check status
     if password == "" or email == "":
