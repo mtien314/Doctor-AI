@@ -22,7 +22,7 @@ def check_user(email):
 
 def find_accountID(email):
     result = connect(table = 'account')
-    df = pd.DataFrame(result,columns = ['ID','Email','Password'])
+    df = pd.DataFrame(result,columns = ['ID','Name','Age','Email','Phone'])
     mail = [x for x in df['Email']]
     account_ID = df.loc[df['Email']==email , 'ID' ].values[0]
     return account_ID
