@@ -14,7 +14,7 @@ def select_time(slot):
 def select_day(day):
     st.session_state["selected_day"] = day
 
-def apointment():
+def appointment():
     st.markdown("<h1 style='text-align: center; color: black;'>Đặt Lịch Hẹn Bác Sĩ</h1>", unsafe_allow_html=True)
 
     # Connect to the data
