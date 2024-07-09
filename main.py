@@ -11,7 +11,7 @@ st.set_page_config(page_title="Home", page_icon="🏚️",layout="wide")
 client_id = st.secrets["client_id"]
 client_secret = st.secrets["client_secret"]
 
-redirect_uri = st.secretes["edirect_uri"]
+redirect_uri = st.secretes["redirect_uri"]
 def ggAuth():
     login_info = oauth.login(
         client_id=client_id,
