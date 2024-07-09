@@ -82,7 +82,7 @@ if page =="Login":
         update_historylogs(id,email2)
         update_user_record(id,email2)
         #button submit
-        submit2 = st.form_submit_button("login")
+        submit2 = st.form_submit_button("Đăng ký")
         if submit2:
             sleep(0.5)
             st.switch_page("pages/page1.py")
