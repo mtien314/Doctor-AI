@@ -44,7 +44,7 @@ def appointment(PatientID):
     df2 = pd.DataFrame(result, columns = ['ID','Name','Speciality'])
     cursor.close()
     # Connect to the data
-    path = "D:/Users/User/Downloads/PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
+    path = "PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.xlsx"
     df = pd.read_excel(path, dtype=str).fillna("")
 
     availability = "Monday, Wednesday, Friday"
