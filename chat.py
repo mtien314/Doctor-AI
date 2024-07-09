@@ -25,14 +25,13 @@ def display(vector_index, chunks):
     df = pd.DataFrame(result, columns = ['ID','Email'])
     n = len(df['ID'])
     PatientID = df['ID'][n-1]
-    st.write(df)
+
     #ket noi user
     data = cursor.execute("SELECT * from user")
     result = cursor.fetchall()
     df = pd.DataFrame(result, columns=['ID','Email','Password','Use'])
     loc = df.loc[df['ID']==PatientID,['Use']]
     use = int(loc['Use'])
-    st.write(df)
     if use == 1:
 
         if "messages" not in st.session_state.keys(): # Initialize the chat message history
