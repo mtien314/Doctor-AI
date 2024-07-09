@@ -44,7 +44,7 @@ if page =="Chat 🧑‍⚕️":
 
 if page =="Home":
     st.header("Doctor AI - Trợ Lý Sức Khỏe Cá Nhân Của Bạn")
-    st.image("D:/Users/User/Downloads/chatbot.jpg",output_format="auto")
+    st.image("chatbot.jpg",output_format="auto")
     st.write("Mô Tả: Đưa sức khỏe của bạn vào tay của công nghệ với Doctor AI - chatbot y tế tiên tiến nhất, hỗ trợ bạn từ việc chẩn đoán ban đầu đến quản lý bệnh mãn tính.")
     st.header("Doctor AI là gì?")
     st.write("Doctor AI là một chatbot y tế thông minh, được thiết kế để cung cấp cho bạn các lời khuyên y tế chính xác và kịp thời. Với sự hỗ trợ của công nghệ AI tiên tiến, Doctor AI có khả năng chẩn đoán các triệu chứng ban đầu, cung cấp thông tin về các bệnh lý và giúp quản lý các bệnh mãn tính.")
