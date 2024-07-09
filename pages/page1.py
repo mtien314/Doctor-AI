@@ -68,7 +68,7 @@ if n == 0 or passw == '0':
 
 @st.cache_resource
 def load_data3():
-    loader = CSVLoader(file_path="D:/Users/User/Downloads/PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.csv",encoding="utf8")
+    loader = CSVLoader(file_path="PHÒNG KHÁM CHUYÊN GIA- BỆNH VIỆN CHỢ RẪY.csv",encoding="utf8")
     data = loader.load()
     
     splitter = RecursiveCharacterTextSplitter(chunk_size=2000, chunk_overlap=0)
