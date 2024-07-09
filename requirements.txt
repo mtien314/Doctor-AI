@@ -8,3 +8,4 @@ sentence-transformers
 chromadb==0.3.29
 openpyxl
 mysql-connector
+Unidecode
