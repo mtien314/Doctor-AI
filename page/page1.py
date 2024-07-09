@@ -141,7 +141,7 @@ elif page2 =="Profile":
             col1, col2 = st.columns(2)
 
             with col1:
-                img = "D:/Users/User/Downloads/Unknown_person.jpg"
+                img = "Unknown_person.jpg"
                 st.image(img, width= 250)
             with col2: 
                 st.write(f"📝Tên: {Name}")
